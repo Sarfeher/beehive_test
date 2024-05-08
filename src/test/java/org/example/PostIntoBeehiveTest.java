@@ -1,7 +1,6 @@
 package org.example;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.apache.hc.core5.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -24,7 +23,7 @@ public class PostIntoBeehiveTest {
                 when().
                 post(urlForBees).
                 then().
-                assertThat().statusCode(HttpStatus.SC_CREATED).
+                assertThat().statusCode(201).
                 assertThat().body(containsString(resBodyMsg));
         testUtil.deleteBee("Pollenator", urlForBees);
 

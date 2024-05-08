@@ -1,7 +1,6 @@
 package org.example;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.apache.hc.core5.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -26,7 +25,7 @@ public class PatchBeeNameTest {
                 when().
                 patch(urlForTheSecondBee).
                 then().
-                assertThat().statusCode(HttpStatus.SC_OK).
+                assertThat().statusCode(200).
                 assertThat().body(containsString(resBodyMsg));
         testUtil.deleteBee("Honey Bunny", urlForBees);
     }
