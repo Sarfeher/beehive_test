@@ -1,5 +1,6 @@
 package org.example;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.apache.hc.core5.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
@@ -9,13 +10,13 @@ import static org.hamcrest.Matchers.containsString;
 public class PatchBeeNameTest {
 
     private final TestUtil testUtil = new TestUtil();
-
+    private final Dotenv dotenv = Dotenv.load();
     private final String beeNameInJson = String.format("{\"name\": \"%s\"}", "Honey Bunny");
 
     @Test
     public void changeBeeName() {
-        String urlForBees = "http://127.0.0.1:3000/api/bees";
-        String urlForTheSecondBee = "http://127.0.0.1:3000/api/bees/2";
+        String urlForBees = dotenv.get("URL_FOR_BEES");
+        String urlForTheSecondBee = dotenv.get("URL_FOR_SECOND_BEE");
         String resBodyMsg = "change its name to";
 
         testUtil.postBee("Zsófi", urlForBees);
