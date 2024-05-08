@@ -4,17 +4,16 @@ import org.apache.hc.core5.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 
 public class PatchBeeNameTest {
 
     private final TestUtil testUtil = new TestUtil();
-    private final String beeNameInJson = String.format("{\"name\": %s}", "Honey Bunny");
+
+    private final String beeNameInJson = String.format("{\"name\": \"%s\"}", "Honey Bunny");
 
     @Test
-    public void change_bee_name() {
+    public void changeBeeName() {
         String urlForBees = "http://127.0.0.1:3000/api/bees";
         String urlForTheSecondBee = "http://127.0.0.1:3000/api/bees/2";
         String resBodyMsg = "change its name to";

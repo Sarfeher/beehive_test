@@ -9,13 +9,13 @@ import static org.hamcrest.Matchers.containsString;
 public class PostIntoBeehiveTest {
 
     private final TestUtil testUtil = new TestUtil();
-    private final String beeNameInJson = String.format("{\"name\": %s}", "Pollenator");
+    private final String beeNameInJson = String.format("{\"name\": \"%s\"}", "Pollenator");
     private final String urlForBees = "http://127.0.0.1:3000/api/bees";
     private final String resBodyMsg = "flew into the hive!";
 
 
     @Test
-    public void beehive_create_new_bee_with_name() {
+    public void createNewBee() {
         given().
                 contentType("application/json").
                 body(beeNameInJson).

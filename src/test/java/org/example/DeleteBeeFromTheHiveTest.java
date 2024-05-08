@@ -7,14 +7,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
 public class DeleteBeeFromTheHiveTest {
-    private final String beeNameInJson = String.format("{\"name\": %s}", "Pollenator");
+    private final String beeNameInJson = String.format("{\"name\": \"%s\"}", "Pollenator");
     private final String urlForBees = "http://127.0.0.1:3000/api/bees";
     private final String resBodyMsg = "flew away from the hive!";
 
 
 
     @Test
-    public void change_bee_name() {
+    public void changeBeeName() {
         given().
                 contentType("application/json").
                 body(beeNameInJson).
