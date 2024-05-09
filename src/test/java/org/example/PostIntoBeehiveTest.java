@@ -12,11 +12,11 @@ public class PostIntoBeehiveTest {
     private final Dotenv dotenv = Dotenv.load();
     private final String beeNameInJson = String.format("{\"name\": \"%s\"}", "Pollenator");
     private final String urlForBees = dotenv.get("URL_FOR_BEES");
-    private final String resBodyMsg = "flew into the hive!";
 
 
     @Test
     public void createNewBee() {
+        String resBodyMsg = "flew into the hive!";
         given().
                 contentType("application/json").
                 body(beeNameInJson).
